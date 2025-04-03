@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élégance Éternelle | Cercueils de qualité</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/Dernière Demeure icone.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/Dernière Demeure icone.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/Dernière Demeure icone.png">
+    
+    <style>
+        :root {
+            --primary: #3a251e;
+            --primary-light: #5c3f32;
+            --primary-dark: #2a1915;
+            --accent: #8b5a3c;
+            --light: #d7c3b8;
+            --text: #f5f0eb;
+            --text-dark: #1a1410;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', Georgia, serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar personnalisée */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--primary-light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: rgba(58, 37, 30, 0.95);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--text);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--light);
+        }
+        
+        .logo-image {
+            height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo-image {
+            height: 30px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--light);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--light);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(58, 37, 30, 0.7), rgba(58, 37, 30, 0.7)), url('/api/placeholder/1200/800') no-repeat center/cover;
+            background-attachment: fixed;
+            color: var(--text);
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent);
+            color: var(--text);
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* À propos */
+        .about {
+            padding: 5rem 2rem;
+            background-color: var(--text);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-card {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-card p {
+            line-height: 1.6;
+        }
+
+        /* Catalogue */
+        .catalog {
+            padding: 5rem 2rem;
+            background-color: var(--light);
+        }
+
+        .catalog-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--text);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .product-description {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 5rem 2rem;
+            background-color: var(--primary);
+            color: var(--text);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--primary-light);
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 90, 60, 0.3);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer-logo {
+            display: block;
+            max-width: 120px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(215, 195, 184, 0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--primary);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 1.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-image {
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/Dernière Demeure icone.png" alt="Élégance Éternelle Logo" class="logo-image">
+                Élégance Éternelle
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" class="nav-link">Accueil</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">À propos</a></li>
+                <li class="nav-item"><a href="#catalog" class="nav-link">Catalogue</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/téléchargé.png" alt="Cercueil Sérénité" class="product-image">
+            <h1 class="hero-title">Cercueils d'Exception</h1>
+            <p class="hero-subtitle">Élégance, qualité et respect pour un dernier hommage</p>
+            <a href="#catalog" class="btn">Découvrir notre Collection</a>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section id="about" class="about">
+        <h2 class="section-title">Notre Savoir-Faire</h2>
+        <div class="about-content">
+            <div class="about-card fade-in">
+                <h3>Artisanat traditionnel</h3>
+                <p>Notre atelier perpétue un savoir-faire séculaire. Chaque cercueil est fabriqué avec minutie par nos artisans ébénistes qui travaillent dans le respect des traditions tout en intégrant des techniques modernes pour garantir une qualité irréprochable.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>Matériaux nobles</h3>
+                <p>Nous sélectionnons exclusivement des bois de qualité supérieure issus de forêts gérées durablement. Chêne, noyer, acajou... chaque essence est choisie pour ses propriétés et sa beauté naturelle, offrant à vos proches un écrin digne et élégant.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>Accompagnement personnalisé</h3>
+                <p>Notre équipe vous accompagne avec respect et discrétion dans ce moment difficile. Nous vous conseillons et vous aidons à personnaliser le cercueil selon vos souhaits pour rendre un dernier hommage qui reflète la personnalité du défunt.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalogue -->
+    <section id="catalog" class="catalog">
+        <h2 class="section-title">Notre Collection</h2>
+        <div class="catalog-content">
+            <div class="products">
+                <div class="product-card fade-in">
+                    <img src="images/c02.png" alt="Cercueil Sérénité" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Sérénité</h3>
+                        <p class="product-description">Cercueil en chêne massif avec finition satinée et garnitures en laiton doré. Intérieur capitonné en satin blanc.</p>
+                        <div class="product-price">2 490 €</div>
+                        <a href="#" class="btn">Détails</a>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="images/c01.png" alt="Cercueil Élégance" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Élégance</h3>
+                        <p class="product-description">Cercueil en noyer avec finition brillante et décorations sculptées à la main. Intérieur en velours beige.</p>
+                        <div class="product-price">3 190 €</div>
+                        <a href="#" class="btn">Détails</a>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <img src="images/c03.png" alt="Cercueil Tradition" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-title">Tradition</h3>
+                        <p class="product-description">Cercueil en acajou avec finition mate et poignées en bronze vieilli. Intérieur capitonné en soie bordeaux.</p>
+                        <div class="product-price">2 890 €</div>
+                        <a href="#" class="btn">Détails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Nous Contacter</h2>
+        <div class="contact-content">
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Votre nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Votre email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="Votre téléphone">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Sujet">
+                </div>
+                <div class="form-group full">
+                    <textarea class="form-control" placeholder="Votre message" required></textarea>
+                </div>
+                <div class="form-group full">
+                    <button type="submit" class="btn">Envoyer</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="images/dd.png" alt="Élégance Éternelle Logo" class="footer-logo">
+                <p>Notre engagement : vous offrir des produits d'exception pour rendre un dernier hommage digne et respectueux à vos proches.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Liens Utiles</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#catalog">Catalogue</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Informations</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Mentions Légales</a></li>
+                    <li><a href="#">Politique de Confidentialité</a></li>
+                    <li><a href="#">Conditions de Vente</a></li>
+                    <li><a href="#">Livraison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li>Bè-kpota, Lomé-Togo</li>
+                    <li>Mail: @elegance-eternelle.fr</li>
+                    <li>Contacte: +228 97 72 79 25</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Élégance Éternelle - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation responsive
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const header = document.querySelector("header");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-link").forEach(n => 
+            n.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            })
+        );
+
+        // Header scroll effect
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 100) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        // Animation au défilement
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Effet de parallaxe
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+        });
+    </script>
+</body>
+</html>
