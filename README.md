@@ -1,3 +1,11 @@
+"#Projet Élégance Éternelle" By Julien Essowè ALABA
+
+Site de vente en ligne de cerceuils haute gamme !
+Élégance, qualité et respect pour un dernier hommage
+
+🔗Visit Site👉: https://julien-16.github.io/SAYNA-HTMLCSS-BATMAN1/
+
+
 Caractéristiques incluses :
 
 Design responsive qui s'adapte à tous les appareils
@@ -18,11 +26,9 @@ Catalogue de produits avec effets d'animation
 Formulaire de contact
 Pied de page complet avec informations et liens utiles
 
-
-
 Pour compléter ce site avec Laravel :
 
-intégrer cette maquette à Laravel, vous devrez :
+intégrer cette maquette à Laravel :
 Créer un nouveau projet Laravel
 Configurer les routes dans routes/web.php
 Créer des contrôleurs pour gérer les différentes sections
